@@ -1,0 +1,50 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+	body {
+		margin: 0;
+	}
+	.main {
+		height: 100vh;
+		display: flex;
+	}
+	
+	.main div {
+		flex: 1;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		transition: flex 1s linear, opacity 0.5s linear;
+		cursor: pointer;
+		opacity: 0.4
+	}
+	
+	@media (max-width: 600px) {
+		.main {
+			flex-direction: column;
+		}
+	}
+
+
+</style>
+<div class="main">
+	<div class="image" style="background-image: url(./pic1.jpg); "></div>
+	<div class="image" style="background-image: url(./pic2.jpg); "></div>
+	<div class="image" style="background-image: url(./pic3.jpg); "></div>
+	<div class="image" style="background-image: url(./pic4.jpg); "></div>
+	<div class="image" style="background-image: url(./pic5.jpg); "></div>
+</div>
+<script>
+	document.addEventListener('click', (e) => {
+		e.target.style.flex = '4';
+		e.target.style.opacity = '1';
+		
+		const elements = document.getElementsByClassName('image');
+		
+		for(const element of elements) {
+			if (element !== e.target) {
+				element.style.flex = '1';
+				element.style.opacity = '0.5';
+			}
+		}
+	})
+</script>
